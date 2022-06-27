@@ -1,4 +1,4 @@
-import HttpHeader from '@c/HttpHeader';
+import HttpHeader from '@c/comm/HttpHeader';
 import '@s/globals.css';
 
 function MyApp({ Component, pageProps }) {  
