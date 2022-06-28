@@ -1,5 +1,5 @@
-import ArticlesWithProgress from '@c/ArticlesWithProgress'
-import Footer from '@c/comm/Footer'
+import ArticlesWithProgress from 'components/ArticlesWithProgress'
+import Footer from 'components/comm/Footer'
 
 const Layout = ({children})=>{
     return <>

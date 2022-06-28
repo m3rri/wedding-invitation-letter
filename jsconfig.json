@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "*": ["src/*"]
+         },
+        "target": "es5",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "jsx": "preserve",
+        "jsxImportSource": "@emotion/react",
+        "module": "esnext",
+        "isolatedModules": true
+    },
+    "include": [
+      "next-env.d.ts",
+      "**/*.js",
+      "**/*.jsx",
+      "next.config.js",
+      "**/*.jpg",
+      "**/*.png"
+    ],
+    "exclude": [
+      "node_modules"
+    ]
+}

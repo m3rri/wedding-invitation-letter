@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import {css} from '@emotion/react';
-import Calendar from '@c/Calendar';
+import Calendar from 'components/Calendar';
 
 const DivLine = styled.div({
     borderBottom: "1px solid #8BA5B4",

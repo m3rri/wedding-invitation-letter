@@ -1,8 +1,8 @@
 import { useRef, useEffect, useState } from 'react';
-import Layout from '@c/comm/Layout';
 import styled from '@emotion/styled';
-import MainPicture from '@c/index/MainPicture';
-import Introduce from '@c/index/Introduce';
+import Layout from 'components/comm/Layout';
+import MainPicture from 'components/index/MainPicture';
+import Introduce from 'components/index/Introduce';
 
 const ArticleWithHeight = styled.article(
   {

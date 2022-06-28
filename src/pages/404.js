@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import HttpHeader from '@c/comm/HttpHeader';
+import HttpHeader from 'components/comm/HttpHeader';
 import {css} from '@emotion/react';
 
 const NotFound = () => {

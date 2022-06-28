@@ -1,5 +1,5 @@
-import HttpHeader from '@c/comm/HttpHeader';
-import '@s/globals.css';
+import HttpHeader from 'components/comm/HttpHeader';
+import 'styles/globals.css';
 
 function MyApp({ Component, pageProps }) {  
   return <>

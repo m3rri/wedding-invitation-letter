@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import {css} from '@emotion/react';
-import DayName from '@c/comm/DayName';
+import DayName from 'components/comm/DayName';
 
 const TextWrap = css`
   position: absolute;
