@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import Layout from 'components/comm/Layout';
 import MainPicture from 'components/index/MainPicture';
 import Introduce from 'components/index/Introduce';
-const {IMAGE_PATH} = process.env;
 
 const ArticleWithHeight = styled.article(
   {
@@ -137,6 +136,7 @@ export default function Home() {
           <a
             href="https://map.kakao.com/link/search/웨딩스퀘어%20강변점"
             target={'_blank'}
+            rel={"noreferrer"}
             style={{padding:"0 15px"}}>
             <img src="img/kakaomap.png" width={35} height={30}/>
             <span style={{padding:"0 0 0 10px"}}>카카오맵</span>
@@ -144,6 +144,7 @@ export default function Home() {
           <a
             href="https://m.map.naver.com/search2/search.naver?query=%EC%9B%A8%EB%94%A9%EC%8A%A4%ED%80%98%EC%96%B4%20%EA%B0%95%EB%B3%80%EC%A0%90&sm=shistory&style=v5#/map/1/31761747"
             target={'_blank'}
+            rel={"noreferrer"}
             style={{padding:"0 15px"}}>
             <span style={{padding:"0 0 0 10px"}}>네이버맵</span>
           </a>

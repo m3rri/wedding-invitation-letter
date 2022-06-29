@@ -2,7 +2,6 @@ import Head from 'next/head';
 const {IMAGE_PATH} = process.env;
 
 const HttpHeader = ()=>{
-    console.log(process.env);
     return <Head>
         <title>🎉양희영❤김혜리 모바일 청첩장🎊</title>
         <meta charSet="utf-8"></meta>
