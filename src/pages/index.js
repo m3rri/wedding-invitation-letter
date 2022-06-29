@@ -44,7 +44,7 @@ const INTRO_TEXT = [
 
 const createKakaoMap = (ref)=>{
   const marker = new kakao.maps.LatLng(37.536038, 127.095678);
-  const imgSrc = `/img/mapMarker.png`,
+  const imgSrc = `img/mapMarker.png`,
         imgSize = new kakao.maps.Size(38, 40),
         imgOption = {offset: new kakao.maps.Point(19, 40)};
   const markerImg = new kakao.maps.MarkerImage(imgSrc, imgSize, imgOption);
