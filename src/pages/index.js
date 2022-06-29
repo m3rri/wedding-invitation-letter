@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import Layout from 'components/comm/Layout';
 import MainPicture from 'components/index/MainPicture';
 import Introduce from 'components/index/Introduce';
+import {MapTitle} from 'components/index/Map';
 
 const ArticleWithHeight = styled.article(
   {
@@ -114,8 +115,7 @@ export default function Home() {
       }}
       ref={mapWapper}
     >
-      <div style={{margin:"40px 0 10px"}}>오시는 길</div>
-      <p>웨딩스퀘어 강변점 3층 베니르홀</p>
+      <MapTitle/>
     </ArticleWithHeight>
     <ArticleWithHeight
       css={{
