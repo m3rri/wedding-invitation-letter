@@ -91,7 +91,7 @@ export default function Home() {
     </ArticleWithHeight>
     <ArticleWithHeight
       css={{
-        background: "rgba(211,242,217,0.5)", color: "#8BA5B4", padding: "0 15px"
+        background: "rgba(211,242,217,0.3)", color: "#8BA5B4", padding: "0 15px"
       }}
       ref={mapWapper}
     >

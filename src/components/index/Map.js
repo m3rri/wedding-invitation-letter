@@ -39,7 +39,7 @@ const mapAppLink = css`
         align-items: center;
         display: flex;
         padding: 5px 15px;
-        background: rgba(211,242,217,0.7);
+        background: rgba(211,242,217,0.5);
         margin: 0 5px;
     }
     a span{
@@ -76,7 +76,7 @@ const CopyText = ({text})=>{
     >
         <span css={{
             margin: "0 8px",
-            background:"rgba(211,242,217,0.7)",
+            background:"rgba(211,242,217,0.5)",
             textDecorationLine:"underline",
             cursor: "pointer",
             '&:before': {
@@ -101,7 +101,7 @@ const Description = ()=>{
           <DescriptionSpan  text='네비게이션 | 강변테크노마트 검색'/>
           <CopyText         text={'강변테크노마트'}/>
           <DescriptionSpan  text=''                     newLine={true}/>
-          <DescriptionSpan  text='※ 도로명 : 서울시 광진구 광나루로 56길 85'/>
+          <DescriptionSpan  text='※ 서울시 광진구 광나루로 56길 85'/>
           <CopyText         text={'서울시 광진구 광나루로 56길 85'}/>
           <DescriptionSpan  text=''                     newLine={true}/>
           <DescriptionSpan  text='[주차]'   bold={true}/>
