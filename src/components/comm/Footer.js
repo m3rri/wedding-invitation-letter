@@ -7,16 +7,20 @@ const FooterStyled = styled.footer(
         padding: "10px 0",
         justifyContent: "center",
         alignItems: "center",
-        background: "#D3F2D9",
+        background: "#fff",
         fontSize: "11px",
+        fontWeight: 'bold',
         color: "#333"
-    }
+    },
+    props=>({
+        '::before': {
+            content: `'`+props.text+`'`
+        }
+    })
 )
 
 const Footer = ()=>{
-    return <FooterStyled>
-        ©2022 Kim Hye Ri. All rights reserved.
-    </FooterStyled>
+    return <FooterStyled text={'©2022 Kim Hye Ri. All rights reserved.'}/>
 }
 
 export default Footer;
