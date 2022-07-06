@@ -5,7 +5,7 @@ const HttpHeader = ()=>{
     return <Head>
         <title>🎉양희영❤김혜리 모바일 청첩장🎊</title>
         <meta charSet="utf-8"></meta>
-        <meta property='og:image' content={`./${IMAGE_PATH}/thumb.jpg`} />
+        <meta property='og:image' content={`./${IMAGE_PATH}/thumb.png`} />
         <meta property="og:title" content="🎉양희영❤김혜리 청첩장🎊" />
         <meta property="og:description" content="10월1일 토요일 12시 30분 저희 결혼합니다!" />
         <meta property="og:url" content="https://m3rri.github.io/wedding-invitation-letter" />

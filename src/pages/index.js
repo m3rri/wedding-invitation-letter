@@ -1,10 +1,10 @@
 import { useRef, useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
 import styled from '@emotion/styled';
 import Layout from 'components/comm/Layout';
 import MainPicture from 'components/index/MainPicture';
 import Introduce from 'components/index/Introduce';
 import {MapTitle, MapDescription} from 'components/index/Map';
+import Link from 'next/link';
 
 const ArticleWithHeight = styled.article(
   {
@@ -43,16 +43,19 @@ const INTRO_TEXT = [
   더없는 기쁨이 되겠습니다.`
 ];
 
+const GROOM_KAKAOPAY = '281006011000035848853992';
+const BRIDE_KAKAOPAY = '281006011161815290004942';
+
 export default function Home() {
-  const router = useRouter();
   const [pageHeight, setPageHeight] = useState(700);
   const [top, setTop] = useState(100);
 
   const mainPicture = useRef();
   const introduceText = useRef();
+  const gallery = useRef();
   const mapWapper = useRef();
   const mapArea = useRef();
-  const rollingPaper = useRef();
+  const sendHeart = useRef();
 
   useEffect(()=>{
     const {innerHeight} = window;
@@ -91,6 +94,12 @@ export default function Home() {
     </ArticleWithHeight>
     <ArticleWithHeight
       css={{
+        background: "rgba(196,125,120,0.15)", padding: '25px 0'
+      }}
+      ref={gallery}
+    >갤러리</ArticleWithHeight>
+    <ArticleWithHeight
+      css={{
         background: "rgba(211,242,217,0.3)", color: "#8BA5B4", padding: "0 15px"
       }}
       ref={mapWapper}
@@ -104,8 +113,23 @@ export default function Home() {
       css={{
         background: "rgba(196,125,120,0.15)", padding: '25px 0'
       }}
-      ref={rollingPaper}
+      ref={sendHeart}
     >
+      <div>마음 전하실 곳</div>
+      <div>신랑</div>
+      <div>
+        <span>계좌보기</span>
+        <Link href={`https://qr.kakaopay.com/${GROOM_KAKAOPAY}`}>
+          <a style={{color: '#C47D78'}}>카카오 페이</a>
+        </Link>
+      </div>
+      <div>신부</div>
+      <div>
+        <span>계좌보기</span>
+        <Link href={`https://qr.kakaopay.com/${BRIDE_KAKAOPAY}`}>
+          <a style={{color: '#C47D78'}}>카카오 페이</a>
+        </Link>
+      </div>
     </ArticleWithHeight>
   </Layout>;
 }

@@ -54,7 +54,7 @@ const WeddingDate = styled.span({
 
 const MainPicture = ({names, wDay, dDay, wSite, top})=>{
     return <>
-      <img src={'./img/thumb.jpg'} height="93%" alt='' />
+      <img src={'./img/main.jpg'} height="93%" alt='' />
       <div css={TextWrap}>
         <div style={{top:`${top}px`}}>
           <DDay dDay={dDay}/>
