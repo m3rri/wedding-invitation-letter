@@ -7,26 +7,13 @@ const TextWrap = css`
   width: 95%;
   height: 96%;
   border: 2px solid #779C6A;
-  z-index: 10;
   div {
     position: absolute;
-    color: #779C6A;
+    color: #333;
     right: 23px;
     text-align: right;
-    font-weight: bold
   }
 `;
-
-const DDay = styled.span(
-  {
-    fontWeight: "normal"
-  },
-  props=>({
-    '&:before': {
-      content: `'D - `+props.dDay+`'`
-    }
-  })
-);
 
 const GettingMarried = styled.p(
   {
@@ -34,7 +21,7 @@ const GettingMarried = styled.p(
   },
   props=>({
     '&::before': {
-      content: `'`+props.names.groom+`♡`+props.names.bride+`\\A결혼합니다'`,
+      content: `'결혼합니다\\A`+props.names.groom+`❤`+props.names.bride+`'`,
       whiteSpace: 'pre'
     }
   })
@@ -52,12 +39,11 @@ const WeddingDate = styled.span({
   }
 }));
 
-const MainPicture = ({names, wDay, dDay, wSite, top})=>{
+const MainPicture = ({names, wDay, wSite, top})=>{
     return <>
-      <img src={'./img/main.jpg'} height="93%" alt='' />
+      <img src={'./img/main.jpg'} height="93%" alt=''/>
       <div css={TextWrap}>
         <div style={{top:`${top}px`}}>
-          <DDay dDay={dDay}/>
           <GettingMarried names={names}/>
           <WeddingDate
             yyyy={wDay.getFullYear()}

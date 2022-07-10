@@ -8,7 +8,7 @@ const DivMonth = styled.div(
     },
     props=>({
         "&::before": {
-            content: `'`+props.month+`'`
+            content: `'`+props.mm+`월'`
         }
     })
 );
@@ -16,15 +16,14 @@ const DivMonth = styled.div(
 const CalendarWrapper = styled.div({
     display: "grid",
     gridTemplateColumns: "repeat(7, 1fr)",
-    fontSize: "15px",
-    margin: "0 33px"
+    fontSize: "15px"
 });
 
 const DivDate = styled.div(
     {
         justifyContent: "center",
         alignItems: "center",
-        margin: "5px"
+        margin: "8px 10px"
     },
     props=>({
         "&::before": {
@@ -38,20 +37,26 @@ const ThisDate = css`
     color: #FFF;
     padding: 7px 0 8px;
     border-radius: 29px;
-    margin: 0 4px;
+    margin: 0 1px;
     font-weight: bold;
 `;
 
-const dataFormat = date=>date.toLocaleDateString().replace(/\./g, '').split(' ');
+const dataFormat = date=>{
+    return [
+        date.getFullYear(),
+        date.getMonth()+1,
+        date.getDate()
+    ];
+}
 
 const Calendar = ({date})=>{
-    const [year, month, _date] = dataFormat(date);
+    const [yyyy, mm, dd] = dataFormat(date);
     let dayNames = [];
     let lastDays = [];
     let thisDays = [];
     let nextDays = [];
-    const lastDayOfPrevMonth = new Date(year, month-1, 0).getDay();
-    const lastDateOfThisMonth = dataFormat(new Date(year, month, 0)).pop()*1;
+    const lastDayOfPrevMonth = new Date(yyyy, mm-1, 0).getDay();
+    const lastDateOfThisMonth = dataFormat(new Date(yyyy, mm, 0)).pop()*1;
     let lastDaysOfSquare = (lastDayOfPrevMonth+1)+lastDateOfThisMonth;
     lastDaysOfSquare = (Math.ceil(lastDaysOfSquare/7)*7)-(lastDaysOfSquare+1);
 
@@ -62,7 +67,7 @@ const Calendar = ({date})=>{
     }
 
     for(let i=0; i<lastDateOfThisMonth; i++){
-        if(i+1==_date){
+        if(i+1==dd){
             thisDays.push(<DivDate key={`this-${i}`} date={i+1} css={ThisDate}/>);
         }else{
             thisDays.push(<DivDate key={`this-${i}`} date={i+1}/>);
@@ -73,15 +78,20 @@ const Calendar = ({date})=>{
         nextDays.push(<DivDate key={`last-${i}`} date={''}/>);
     }
     
-    return <>
-        <DivMonth month={`${month}월`}/>
+    return <div css={{
+        background: "rgba(196,125,120,0.15)",
+        padding: "5px",
+        borderRadius: "10px",
+        marginTop: "20px"
+    }}>
+        <DivMonth mm={mm}/>
         <CalendarWrapper>
             {dayNames}
             {lastDays}
             {thisDays}
             {nextDays}
         </CalendarWrapper>
-    </>;
+    </div>;
 }
 
 export default Calendar;

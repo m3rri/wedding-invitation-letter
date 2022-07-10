@@ -38,8 +38,8 @@ const mapAppLink = css`
     a{
         align-items: center;
         display: flex;
-        padding: 5px 15px;
-        background: rgba(211,242,217,0.5);
+        padding: 6px 10px;
+        background: rgba(196,125,120,0.25);
         margin: 0 5px;
     }
     a span{
@@ -76,7 +76,7 @@ const CopyText = ({text})=>{
     >
         <span css={{
             margin: "0 8px",
-            background:"rgba(211,242,217,0.5)",
+            background:"rgba(196,125,120,0.25)",
             textDecorationLine:"underline",
             cursor: "pointer",
             '&:before': {
@@ -86,8 +86,16 @@ const CopyText = ({text})=>{
     </CopyToClipboard>;
 }
 
+const DescriptionWrapper = css`
+    margin: 17px 0;
+    p {
+        margin-bottom: 25px;
+    }
+`;
+
 const DescriptionSpan = styled.span(props=>({
     display: props.newLine ? 'block' : 'inline',
+    paddingBottom: "0.55em",
     '&:before': {
         content: `'`+props.text+`'`,
         fontWeight: props.bold ? 'bold' : 'normal'
@@ -95,7 +103,7 @@ const DescriptionSpan = styled.span(props=>({
 }));
 
 const Description = ()=>{
-    return <div style={{margin:"17px 0"}}>
+    return <div css={DescriptionWrapper}>
         <p>
           <DescriptionSpan  text='[자가용]' bold={true} newLine={true}/>
           <DescriptionSpan  text='네비게이션 | 강변테크노마트 검색'/>
@@ -113,14 +121,14 @@ const Description = ()=>{
           <DescriptionSpan  text='[지하철]' bold={true}/>
           <DescriptionSpan  text=' 2호선 강변역'/>
           <DescriptionSpan  text=''                     newLine={true}/>
-          <DescriptionSpan  text='※ 1, 2번 출구사이 지하 연결 통로로 들어온 뒤 엘레베이터를 이용하세요.'/>
+          <DescriptionSpan  text='※ 1, 2번 출구사이 지하 연결 통로로 들어온 뒤 엘레베이터를 이용하세요'/>
         </p>
         <p>
           <DescriptionSpan  text='[버스]'   bold={true} newLine={true}/>
-          <DescriptionSpan  text='시외, 고속버스 | 동서울터미널 하차 후 [지하철] 강변역 내용 참조하세요.' newLine={true}/>
+          <DescriptionSpan  text='시외, 고속버스 | 동서울터미널 하차 후 [지하철] 강변역 내용 참조하세요' newLine={true}/>
           <DescriptionSpan  text='지선버스 | 2223, 3212, 3214'                                       newLine={true}/>
           <DescriptionSpan  text='광역버스 | 1112, 1117, 1650, 1660, 5600, 5700A, 5700B, 9304'       newLine={true}/>
-          <DescriptionSpan  text='※ 지선, 광역, 마을버스 등은 테크노마트 1층 에스컬레이터를 이용하세요.' newLine={true}/>
+          <DescriptionSpan  text='※ 지선, 광역, 마을버스 등은 테크노마트 1층 에스컬레이터를 이용하세요' newLine={true}/>
         </p>
       </div>
 }
