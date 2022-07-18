@@ -23,7 +23,7 @@ const DivDate = styled.div(
     {
         justifyContent: "center",
         alignItems: "center",
-        margin: "8px 10px"
+        margin: "0.6em 0.85em"
     },
     props=>({
         "&::before": {
@@ -79,7 +79,7 @@ const Calendar = ({date})=>{
     }
     
     return <div css={{
-        background: "rgba(196,125,120,0.15)",
+        background: "rgba(196,125,120,0.08)",
         padding: "5px",
         borderRadius: "10px",
         marginTop: "20px"

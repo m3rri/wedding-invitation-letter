@@ -38,7 +38,7 @@ const ModalContent = styled.div({
     paddingBottom: "30px",
     ".side-name": {
         width: "100%",
-        background: "#efefef",
+        background: "rgba(196,125,120,0.15)",
         padding: "15px 0",
         fontWeight: "bold"
     },

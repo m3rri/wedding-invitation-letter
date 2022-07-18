@@ -5,7 +5,7 @@ import {css} from '@emotion/react';
 
 const InviteMsg = styled.div({
     fontWeight:'bold',
-    margin: "50px 0 30px"
+    marginBottom: "80px"
 },
 props=>({
     "&::before": {
@@ -15,7 +15,7 @@ props=>({
 
 const MessageComponent = styled.p(
     {
-        fontSize: "15px"
+        fontSize: "16px"
     },
     props=>({
         "&::before": {
@@ -31,12 +31,16 @@ const NamesStyle = css`
     justify-content: center;
     align-items: center;
     font-size: 17px;
-    margin: 15px 0 15px;
+    margin: 25px 0 25px;
     span{
         display: block;
         margin-right: 8px;
     }
-    span:nth-child(4){
+    span:nth-of-type(2){
+        font-weight: bold;
+        font-size: 19px;
+    }
+    span:nth-of-type(4){
         font-weight: bold;
         font-size: 21px;
     }
@@ -71,7 +75,7 @@ const CallButton = ({openModal})=>{
         borderRadius: "10px",
         fontSize: "15px",
         padding: "9px 15px",
-        margin: "10px 0 50px",
+        margin: "10px 0 30px",
         cursor: "pointer",
         "&:before": {
             content: `'혼주에게 연락하기'`
@@ -100,7 +104,7 @@ const modalStyle = {
 
 const ModalHeader = styled.div({
     width:"100%",
-    background: "#efefef",
+    background: "rgba(119,156,106,0.3)",
     textAlign: "center",
     fontSize: "19px",
     padding: "15px 0",
@@ -112,7 +116,7 @@ const ModalHeader = styled.div({
 
 const ModalWrapper = styled.div({
     fontSize: "21px",
-    padding: "25px 10px",
+    padding: "35px 10px",
     textAlign: "center",
     ".divide": {
         borderBottom: "1px solid #333",
@@ -127,15 +131,15 @@ const ModalField = styled.div({
     "div" :{
         flex: "auto"
     },
-    "div:nth-child(2)":{
+    "div:nth-of-type(2)":{
         fontWeight: "bold"
     }
 },
 props=>({
-    "div:nth-child(1)::before": {
+    "div:nth-of-type(1)::before": {
         content: `'`+props.sideName+`'`
     },
-    "div:nth-child(2)::before":{
+    "div:nth-of-type(2)::before":{
         content: `'`+props.profileName+`'`
     }
 }));
@@ -168,12 +172,21 @@ const Introduce = ({textList, intro})=>{
     }
 
     return <>
+        <div style={{position: 'relative'}}>
+            <div style={{transform: 'rotate(-25deg)', position: 'absolute', right: '-35%', top: '-110px'}}>
+                <img src={'./img/leaves1.png'} alt='' width='70%'/>
+            </div>
+            <div style={{transform: 'rotate(65deg)', position: 'absolute', left: '-15%', top: '-30px'}}>
+                <img src={'./img/leaves2.png'} alt='' width='60%'/>
+            </div>
+        </div>
         <InviteMsg text={"초대합니다"} />
         {textList.map(text=>{
             return <MessageComponent key={text}
                 text={text}
             />
         })}
+        <div style={{marginTop: '30%'}}></div>
         <Names key={'groomNames'}
             division={groom[0]}
             father={groom[1].name}

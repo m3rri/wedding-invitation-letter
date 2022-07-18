@@ -21,7 +21,7 @@ const Site = styled.p(props=>({
 
 const MapTitle = ({site})=>{
     return <>
-        <Title text={'오시는 길'} />
+        <Title text={'오시는 길'} id="navigation"/>
         <Site text={site} />
     </>
 }
@@ -39,8 +39,10 @@ const mapAppLink = css`
         align-items: center;
         display: flex;
         padding: 6px 10px;
-        background: rgba(196,125,120,0.25);
         margin: 0 5px;
+        background: #fff;
+        box-shadow: 0px 1px 0.5px #779C6A;
+        border-radius: 10% 10%;
     }
     a span{
         padding: 0 0 0 10px;
@@ -76,7 +78,7 @@ const CopyText = ({text})=>{
     >
         <span css={{
             margin: "0 8px",
-            background:"rgba(196,125,120,0.25)",
+            background:"rgba(119,156,106,0.25)",
             textDecorationLine:"underline",
             cursor: "pointer",
             '&:before': {
@@ -104,27 +106,32 @@ const DescriptionSpan = styled.span(props=>({
 
 const Description = ()=>{
     return <div css={DescriptionWrapper}>
+        <div style={{marginTop: '30px'}}></div>
         <p>
-          <DescriptionSpan  text='[자가용]' bold={true} newLine={true}/>
+          <DescriptionSpan  text='🚗 자가용' bold={true} newLine={true}/>
           <DescriptionSpan  text='네비게이션 | 강변테크노마트 검색'/>
           <CopyText         text={'강변테크노마트'}/>
           <DescriptionSpan  text=''                     newLine={true}/>
           <DescriptionSpan  text='※ 서울시 광진구 광나루로 56길 85'/>
           <CopyText         text={'서울시 광진구 광나루로 56길 85'}/>
           <DescriptionSpan  text=''                     newLine={true}/>
-          <DescriptionSpan  text='[주차]'   bold={true}/>
-          <DescriptionSpan  text=' 강변 테크노마트 지하 3층~지하 5층'/>
+          <DescriptionSpan  text='🅿 주차'   bold={true}/>
+          <DescriptionSpan  text='　강변 테크노마트 지하 3층~지하 5층'/>
           <DescriptionSpan  text=''                     newLine={true}/>
           <DescriptionSpan  text='※ 주차장 기둥 번호 100번대 이용하시면 예식장과 가깝습니다'/>
+          <DescriptionSpan  text=''                     newLine={true}/>
+          <DescriptionSpan  text='※ 주차권은 답례품 받는 곳 옆 주차데스크에서 수령할 수 있습니다'/>
         </p>
+        <div style={{width: '100%', borderTop: '0.1em solid #779C6A'}}></div>
         <p>
-          <DescriptionSpan  text='[지하철]' bold={true}/>
-          <DescriptionSpan  text=' 2호선 강변역'/>
+          <DescriptionSpan  text='🚃 지하철' bold={true}/>
+          <DescriptionSpan  text='　2호선 강변역'/>
           <DescriptionSpan  text=''                     newLine={true}/>
           <DescriptionSpan  text='※ 1, 2번 출구사이 지하 연결 통로로 들어온 뒤 엘레베이터를 이용하세요'/>
         </p>
+        <div style={{width: '100%', borderTop: '0.1em solid #779C6A'}}></div>
         <p>
-          <DescriptionSpan  text='[버스]'   bold={true} newLine={true}/>
+          <DescriptionSpan  text='🚍 버스'   bold={true} newLine={true}/>
           <DescriptionSpan  text='시외, 고속버스 | 동서울터미널 하차 후 [지하철] 강변역 내용 참조하세요' newLine={true}/>
           <DescriptionSpan  text='지선버스 | 2223, 3212, 3214'                                       newLine={true}/>
           <DescriptionSpan  text='광역버스 | 1112, 1117, 1650, 1660, 5600, 5700A, 5700B, 9304'       newLine={true}/>

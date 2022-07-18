@@ -54,6 +54,9 @@ const MainPicture = ({names, wDay, wSite, top})=>{
             MM={wDay.getMinutes()}
             wSite={wSite}
           />
+          <div style={{margin: '8px -20px', fontSize: '14px', color: '#787878'}}>
+            <a href="#navigation">오시는 길 바로가기👆</a>
+          </div>
         </div>
       </div>
     </>

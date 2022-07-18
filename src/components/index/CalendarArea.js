@@ -8,9 +8,8 @@ const DDay = styled.span(
         fontWeight: "normal",
         backgroundSize: "100px 100px",
         lineHeight: "100px",
-        color: "#efefef",
-        transform: "translate(-50%,-8%)",
-        letterSpacing: "-0.03em"
+        transform: "translate(-50%,0%)",
+        letterSpacing: "0.1em"
     },
     props=>({
         '&:before': {
@@ -20,9 +19,11 @@ const DDay = styled.span(
 );
   
 const CalendarArea = ({wDay, dDay})=>{
-    return <div style={{margin: "35px 0", textAlign: "center"}}>
-        <img src="img/dDay.png" height={80}/>
-        <DDay dDay={dDay}/>
+    return <div style={{marginBottom: "60px", textAlign: "center"}}>
+        <div style={{marginBottom: '45px'}}>
+            <img src="img/wreath.png" height={100} width={100}/>
+            <DDay dDay={dDay}/>
+        </div>
         <Calendar date={wDay}/>
     </div>;
 }

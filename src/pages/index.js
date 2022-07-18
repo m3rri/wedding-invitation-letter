@@ -99,7 +99,7 @@ export default function Home() {
     </ArticleWithHeight>
     <ArticleWithHeight
       css={{
-        background: "rgba(211,242,217,0.3)", color: "#333"
+        minHeight: '690px', background: "rgba(211,242,217,0.10)", color: "#333"
       }}
       ref={introduceText}
     >
@@ -112,7 +112,7 @@ export default function Home() {
     </ArticleWithHeight>
     <ArticleWithHeight
       css={{
-        background: "rgba(245,202,164,0.15)", color: "#333"
+        background: "rgba(211,242,217,0.10)", color: "#333"
       }}
       ref={calendar}
     >
@@ -120,7 +120,7 @@ export default function Home() {
     </ArticleWithHeight>
     <ArticleWithHeight
       css={{
-        background: "rgba(211,242,217,0.3)", padding: '25px 0'
+        background: "rgba(211,242,217,0.15)", padding: '25px 0'
       }}
       ref={gallery}
     >
@@ -128,7 +128,7 @@ export default function Home() {
     </ArticleWithHeight>
     <ArticleWithHeight
       css={{
-        background: "rgba(196,125,120,0.15)", color: "#333", padding: "0 15px"
+        background: "rgba(211,242,217,0.1)", color: "#333", padding: "0 15px"
       }}
       ref={mapWapper}
     >

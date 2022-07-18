@@ -8,7 +8,8 @@ import {css} from '@emotion/react';
 
 const SwiperWrapper = styled.div({
     width:"100%",
-    objectFit: "cover"
+    objectFit: "cover",
+    marginBottom: '25px'
 },
 props=>({
     height: props.height,
@@ -26,30 +27,17 @@ const navigationCss = css`
     .swiper-rtl .swiper-button-next:after,
     .swiper-button-next:after,
     .swiper-rtl .swiper-button-prev:after {
-        font-size: 1.8em;
+        font-size: 1em;
     }
     .swiper-button-prev:after,
     .swiper-rtl .swiper-button-next:after {
-        content: '<';
+        content: '◀';
     }
     .swiper-button-next:after,
     .swiper-rtl .swiper-button-prev:after {
-        content: '>';
+        content: '▶';
     }
 `;
-
-const SwiperImgs = ({length})=>{
-    let slides = [];
-
-    for(let i=0; i<length; i++){
-        slides.push(<SwiperSlide style={{padding: "0 40px"}} key={`img${i}`}>
-        <img src={`img/gallery/w${i}.jpeg`} width="100%"/>
-    </SwiperSlide>);
-    }
-
-    return slides.map(slide=>slide);
-}
-
 
 const Gallery = ()=>{
     const [slideHeight, setSlideHeight] = useState();
@@ -60,13 +48,13 @@ const Gallery = ()=>{
 
     for(let i=0; i<imgLength; i++){
         slides.push(<SwiperSlide style={{padding: "0 40px"}} key={`img${i}`}>
-            <img src={`img/gallery/w${i}.jpeg`} width="100%"/>
+            <img src={`gallery/w${i}.jpeg`} width="100%"/>
         </SwiperSlide>);
     }
 
     return <>
-        <div css={{margin: "20px 0 35px", letterSpacing: "0.7em"}}>
-            🤵Gallery👰
+        <div css={{margin: "20px 0 30px", letterSpacing: "0.3em"}}>
+            Gallery
         </div>
         <SwiperWrapper css={navigationCss} height={slideHeight}>
             <Swiper
