@@ -13,9 +13,21 @@ const Title = styled.div(
         }
     })
 );
-const Site = styled.p(props=>({
+const Site = styled.p({
+    border: '1px solid rgba(119,156,106,0.5)',
+    padding: '13px 23px'
+}, props=>({
     "&::before": {
-        content: `'`+props.text+`'`
+        content: `'`+props.text+`'`,
+        fontWeight: 'bold',
+        fontSize: '18px'
+    },
+    "&::after": {
+        content: `'서울시 광진구 광나루로 56길 85'`,
+        display: 'block',
+        fontSize: '16px',
+        textAlign: 'center',
+        paddingTop: '0.8em'
     }
 }));
 
@@ -39,19 +51,20 @@ const mapAppLink = css`
         align-items: center;
         display: flex;
         padding: 6px 10px;
-        margin: 0 5px;
+        margin: 0 8px;
         background: #fff;
         box-shadow: 0px 1px 0.5px #779C6A;
         border-radius: 10% 10%;
     }
     a span{
         padding: 0 0 0 10px;
+        font-size: 15px
     }
 `;
 
 const MapAppLink = ({href, imgSrc, text})=>{
     return <a href={href} target={'_blank'} rel={'noreferrer'}>
-        <img src={imgSrc} width={41} height={41} alt=''/>
+        <img src={imgSrc} width={37} height={37} alt=''/>
         <span css={{'&:before': {content: `'${text}'`}}}/>
     </a>
 }
@@ -91,7 +104,7 @@ const CopyText = ({text})=>{
 const DescriptionWrapper = css`
     margin: 17px 0;
     p {
-        margin-bottom: 25px;
+        margin: 20px 17px 25px;
     }
 `;
 
@@ -100,7 +113,8 @@ const DescriptionSpan = styled.span(props=>({
     paddingBottom: "0.55em",
     '&:before': {
         content: `'`+props.text+`'`,
-        fontWeight: props.bold ? 'bold' : 'normal'
+        fontWeight: props.bold ? 'bold' : 'normal',
+        fontSize: props.bold ? '1.17em' : '1em'
     }
 }));
 
@@ -122,19 +136,19 @@ const Description = ()=>{
           <DescriptionSpan  text=''                     newLine={true}/>
           <DescriptionSpan  text='※ 주차권은 답례품 받는 곳 옆 주차데스크에서 수령할 수 있습니다'/>
         </p>
-        <div style={{width: '100%', borderTop: '0.1em solid #779C6A'}}></div>
+        <div style={{width: '100%', borderTop: '1px solid #779C6A'}}></div>
         <p>
           <DescriptionSpan  text='🚃 지하철' bold={true}/>
           <DescriptionSpan  text='　2호선 강변역'/>
           <DescriptionSpan  text=''                     newLine={true}/>
           <DescriptionSpan  text='※ 1, 2번 출구사이 지하 연결 통로로 들어온 뒤 엘레베이터를 이용하세요'/>
         </p>
-        <div style={{width: '100%', borderTop: '0.1em solid #779C6A'}}></div>
+        <div style={{width: '100%', borderTop: '1px solid #779C6A'}}></div>
         <p>
           <DescriptionSpan  text='🚍 버스'   bold={true} newLine={true}/>
           <DescriptionSpan  text='시외, 고속버스 | 동서울터미널 하차 후 [지하철] 강변역 내용 참조하세요' newLine={true}/>
           <DescriptionSpan  text='지선버스 | 2223, 3212, 3214'                                       newLine={true}/>
-          <DescriptionSpan  text='광역버스 | 1112, 1117, 1650, 1660, 5600, 5700A, 5700B, 9304'       newLine={true}/>
+          <DescriptionSpan  text='광역버스 | 11, 100, 1006, 1112, 1113, 1113-1, 1113-2, 1117, 1650, 1660, 5600, 5700, 9304'       newLine={true}/>
           <DescriptionSpan  text='※ 지선, 광역, 마을버스 등은 테크노마트 1층 에스컬레이터를 이용하세요' newLine={true}/>
         </p>
       </div>

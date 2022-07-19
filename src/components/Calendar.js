@@ -4,7 +4,9 @@ import DayName from 'components/comm/DayName';
 
 const DivMonth = styled.div(
     {
-        margin: "10px 0"
+        margin: "10px 0",
+        fontSize: '24px',
+        color: '#937962'
     },
     props=>({
         "&::before": {
@@ -23,7 +25,13 @@ const DivDate = styled.div(
     {
         justifyContent: "center",
         alignItems: "center",
-        margin: "0.6em 0.85em"
+        margin: "0.6em 0.85em",
+        "&:nth-of-type(7n+1)":{
+            color: "#C47D78"
+        },
+        "&:nth-of-type(7n)":{
+            color: "#8BA5B4"
+        }
     },
     props=>({
         "&::before": {
@@ -33,8 +41,8 @@ const DivDate = styled.div(
 );
 
 const ThisDate = css`
-    background: #F5CAA4;
-    color: #FFF;
+    background: #c4a183;
+    color: #FFF !important;
     padding: 7px 0 8px;
     border-radius: 29px;
     margin: 0 1px;
@@ -79,9 +87,9 @@ const Calendar = ({date})=>{
     }
     
     return <div css={{
-        background: "rgba(196,125,120,0.08)",
+        background: "rgba(196,125,120,0.07)",
         padding: "5px",
-        borderRadius: "10px",
+        borderRadius: "8px",
         marginTop: "20px"
     }}>
         <DivMonth mm={mm}/>

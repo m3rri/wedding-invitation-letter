@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -27,7 +27,7 @@ const navigationCss = css`
     .swiper-rtl .swiper-button-next:after,
     .swiper-button-next:after,
     .swiper-rtl .swiper-button-prev:after {
-        font-size: 1em;
+        font-size: 1.5em;
     }
     .swiper-button-prev:after,
     .swiper-rtl .swiper-button-next:after {
@@ -45,12 +45,18 @@ const Gallery = ()=>{
 
     const imgLength = 5;
     let slides = [];
+    const refs = [];
 
     for(let i=0; i<imgLength; i++){
-        slides.push(<SwiperSlide style={{padding: "0 40px"}} key={`img${i}`}>
-            <img src={`gallery/w${i}.jpeg`} width="100%"/>
+        refs.push(useRef());
+        slides.push(<SwiperSlide style={{padding: "0 10px"}} key={`img${i}`}>
+            <img src={`gallery/w${i}.jpeg`} width="100%" ref={refs[i]}/>
         </SwiperSlide>);
     }
+
+    useEffect(()=>{
+        setSlideHeight(getComputedStyle(refs[0].current).height);
+    }, []);
 
     return <>
         <div css={{margin: "20px 0 30px", letterSpacing: "0.3em"}}>
@@ -65,12 +71,14 @@ const Gallery = ()=>{
                 scrollbar={{ draggable: true }}
                 onSlideChange={(swiper) => {
                     const {realIndex} = swiper;
-                    setSlideHeight(heights[realIndex]);
+                    const {height} = getComputedStyle(refs[realIndex].current);
+
+                    setSlideHeight(height);
                 }}
                 onSwiper={(swiper) => {
                     const {slides, realIndex} = swiper;
                     setHeights(slides.map(slide=>{
-                        return window.getComputedStyle(slide).height;
+                        return getComputedStyle(refs[realIndex].current).height;
                     }));
                     setSlideHeight(window.getComputedStyle(slides[realIndex]).height);
                 }}

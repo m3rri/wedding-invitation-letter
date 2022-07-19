@@ -72,31 +72,43 @@ const ArticlesWithProgress = ({children})=>{
     const [tronsformG, setTransformG] = useState("translate(90%)");
     const [emogi, setEmogi] = useState('none');
 
+    let [activeIndex, setActiveIndex] = useState(0);
+
     useEffect(()=>{
         const calculateProgress = ()=>{
             const {scrollY, innerHeight} = window;
             const pageHeight = document.body.offsetHeight - innerHeight;
-            const heightListClone = getSortedHeightList(childHeightList, scrollY+80);
-            const scrollValueIndex = heightListClone.length === childHeightList.length 
-            ? heightListClone.indexOf(scrollY+80)
-            : scrollY+20 >= pageHeight
-            ? heightListClone.pop()
-            : heightListClone.indexOf(scrollY+80)-1;
+            const checkBottom = scrollY+20 >= pageHeight;
+            
+            const progressIndex = getIndex(scrollY, checkBottom, 0);
+            transformProgress(progressIndex, childHeightList.length);
 
-            transformProgress(scrollValueIndex, childHeightList.length);
+            // const activeArticleIndex = getIndex(scrollY, checkBottom, 1);
+            // setActiveIndex(activeArticleIndex);
         }
 
         const calculateProgressDesktop = ()=>{
             const scrollY = document.querySelector("#__next").scrollTop;
             const pageHeight = document.querySelector("#__next").scrollHeight;
-            const heightListClone = getSortedHeightList(childHeightList, scrollY+80);
-            const scrollValueIndex = heightListClone.length === childHeightList.length 
-            ? heightListClone.indexOf(scrollY+80)
-            : scrollY >= pageHeight-1000
-            ? heightListClone.pop()
-            : heightListClone.indexOf(scrollY+80)-1;
+            const checkBottom = scrollY >= pageHeight-1000;
 
-            transformProgress(scrollValueIndex, childHeightList.length);
+            const progressIndex = getIndex(scrollY, checkBottom, 0);
+            transformProgress(progressIndex, childHeightList.length);
+
+            // const activeArticleIndex = getIndex(scrollY, checkBottom, 1);
+            // setActiveIndex(activeArticleIndex);
+        }
+
+        function getIndex(scrollY, checkBottom, type){
+            const plusValue = type === 0 ? 80 : children[0].ref.current.offsetHeight*0.4;
+            const articleListClone = getSortedHeightList(childHeightList, scrollY+plusValue);
+            const activeArticleIndex = articleListClone.length === childHeightList.length
+            ? articleListClone.indexOf(scrollY+plusValue)
+            : checkBottom
+            ? articleListClone.pop()
+            : articleListClone.indexOf(scrollY+plusValue)-1;
+
+            return activeArticleIndex;
         }
 
         function transformProgress(scrollValueIndex, listLength){
@@ -119,7 +131,14 @@ const ArticlesWithProgress = ({children})=>{
             }
 
             const list = children
-                        .map(({ref})=>ref.current.clientHeight,[])
+                        .map(({ref}, i)=>{
+                            // if(i>0 && ref.current.style.visibility == ''){
+                            //     ref.current.style.visibility = 'hidden';
+                            //     ref.current.style.opacity = 0;
+                            // }
+                            
+                            return ref.current.clientHeight;
+                        },[])
                         .map((child, i, heights)=>{
                             return heights.reduce((accumulator, currentValue, currentIndex)=>{
                                 if(currentIndex<=i){
@@ -132,6 +151,22 @@ const ArticlesWithProgress = ({children})=>{
             childHeightList = Array.from(list);
         }
     }, [childHeightList]);
+
+    // useEffect(()=>{
+    //     let activeArticle;
+    //     if(activeIndex>10){
+    //         activeArticle = children[childHeightList.length-1].ref.current;
+    //     }else{
+    //         activeArticle = children[activeIndex].ref.current;
+    //     }
+
+    //     if(activeIndex>0 && activeArticle.style.visibility=='hidden'){
+    //         activeArticle.style.opacity = 1;
+    //         activeArticle.style.visibility = 'visible';
+    //         activeArticle.style.transition = 'opacity 888ms, visibility 888ms';
+    //     }
+        
+    // }, [activeIndex]);
 
     return <>
         <header css={progressBackStyle}>
