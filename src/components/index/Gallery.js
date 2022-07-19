@@ -45,17 +45,16 @@ const Gallery = ()=>{
 
     const imgLength = 5;
     let slides = [];
-    const refs = [];
+    const imgRef = useRef([]);
 
     for(let i=0; i<imgLength; i++){
-        refs.push(useRef());
         slides.push(<SwiperSlide style={{padding: "0 10px"}} key={`img${i}`}>
-            <img src={`gallery/w${i}.jpeg`} width="100%" ref={refs[i]}/>
+            <img src={`gallery/w${i}.jpeg`} width="100%" ref={itself=> imgRef.current[i] = itself}/>
         </SwiperSlide>);
     }
 
     useEffect(()=>{
-        setSlideHeight(getComputedStyle(refs[0].current).height);
+        setSlideHeight(getComputedStyle(imgRef.current[0]).height);
     }, []);
 
     return <>
@@ -71,14 +70,14 @@ const Gallery = ()=>{
                 scrollbar={{ draggable: true }}
                 onSlideChange={(swiper) => {
                     const {realIndex} = swiper;
-                    const {height} = getComputedStyle(refs[realIndex].current);
+                    const {height} = getComputedStyle(imgRef.current[realIndex]);
 
                     setSlideHeight(height);
                 }}
                 onSwiper={(swiper) => {
                     const {slides, realIndex} = swiper;
                     setHeights(slides.map(slide=>{
-                        return getComputedStyle(refs[realIndex].current).height;
+                        return getComputedStyle(imgRef.current[realIndex]).height;
                     }));
                     setSlideHeight(window.getComputedStyle(slides[realIndex]).height);
                 }}
